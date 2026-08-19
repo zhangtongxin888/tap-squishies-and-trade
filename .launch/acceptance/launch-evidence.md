@@ -3,8 +3,8 @@
 - Run ID: `tap-squishies-and-trade-20260819-01`
 - Intended domain: `https://tap-squishies-and-trade.wiki/`
 - Intended host: Vercel
-- Current state: production deployment ready; Vercel domains attached; external DNS and GSC blocked after the one permitted Chrome reconnect also timed out
-- Browser/controller release: granted for this site; browser work stopped and released after the second Chrome timeout as required
+- Current state: production deployment ready; Vercel domains attached; external DNS and GSC still blocked after the new independent recovery window exhausted its one safe Chrome retry
+- Browser/controller release: re-granted only to this site for the recovery window; Chrome, Spaceship, and GSC work stopped and the lock was released after the repeated timeout
 
 | Check | Formal URL or resource | Checked at (UTC) | Actual result | Evidence |
 |---|---|---:|---|---|
@@ -15,7 +15,7 @@
 | Production build | `npm test` / static `out/` export | 2026-08-19T16:10:00Z | PASS | Next.js 16.3.1 build, TypeScript, six-page verification, robots, Sitemap, canonicals, and CTA checks passed after both release fixes. |
 | Dependency audit | npm production dependency graph | 2026-08-19T16:10:00Z | PASS | Official npm registry audit returned `found 0 vulnerabilities`. |
 | Formal deployment ID and status | Vercel project `prj_NGWsPeUPVjOzIocm8U705EseEeAi` | 2026-08-19T16:09:54Z | PASS | GitHub-connected production deployment `dpl_4ocDLXjeNDqLeSKpCQogA3M425Nt` is `Ready`; deployment URL is `https://tap-squishies-and-trade-oys391clz-zhangtongxin888s-projects.vercel.app` and stable Vercel alias is `https://tap-squishies-and-trade.vercel.app`. |
-| Main-domain HTTPS | `https://tap-squishies-and-trade.wiki/` | 2026-08-19T16:15:14Z | BLOCKED: DNS PENDING | The domain is attached and ownership-verified in Vercel, but Spaceship remains authoritative and apex still resolves to old A values `34.216.117.25` and `54.149.79.189`. Vercel requires apex A records `216.198.79.1` and `64.29.17.1`. No DNS record was changed after Chrome timed out twice. |
+| Main-domain HTTPS | `https://tap-squishies-and-trade.wiki/` | 2026-08-19T16:44:30Z | BLOCKED: DNS PENDING | The domain is attached and ownership-verified in Vercel, but Spaceship remains authoritative and apex still resolves to old A values `34.216.117.25` and `54.149.79.189`. Vercel still reports `misconfigured` and requires apex A records `216.198.79.1` and `64.29.17.1`. No DNS record was changed in either recovery attempt. |
 | `www` redirect | `https://www.tap-squishies-and-trade.wiki/` | 2026-08-19T16:14:47Z | VERCEL PASS / DNS BLOCKED | Vercel project-domain API confirms `www` redirects to the apex with status `308`. External DNS still needs `www CNAME ba1aaf824c34f4da.vercel-dns-017.com.`; current public DNS has no `www` CNAME. |
 | Key pages on formal domain | `/`, `/beginner-guide/`, `/gameplay/`, `/progression/`, `/mistakes/`, `/faq/` | 2026-08-19T16:11:00Z | VERCEL PRODUCTION PASS / FORMAL DOMAIN BLOCKED | All six routes returned 200 on the stable production Vercel alias. Formal-domain checks remain blocked by Spaceship DNS. |
 | `robots.txt` | `https://tap-squishies-and-trade.wiki/robots.txt` | 2026-08-19T16:11:00Z | VERCEL PRODUCTION PASS / FORMAL DOMAIN BLOCKED | The production artifact returns 200, allows `/`, and references `https://tap-squishies-and-trade.wiki/sitemap.xml`; formal-domain HTTP is pending DNS. |
@@ -40,6 +40,16 @@
 - Authoritative DNS confirmed independently: `launch1.spaceship.net` and `launch2.spaceship.net`.
 - Exact DNS recovery work, limited to this domain: replace the two apex parking A values with `216.198.79.1` and `64.29.17.1`; create `www CNAME ba1aaf824c34f4da.vercel-dns-017.com.`; preserve every unrelated record.
 
+## Second independent recovery window
+
+- Controller release: a new browser lock was granted only to this site.
+- Initial state: Chrome connected successfully. The only relevant Spaceship tab found had the exact title `tap-squishies-and-trade.wiki - 高级 DNS - Spaceship` and exact URL `https://www.spaceship.com/zh/application/advanced-dns-application/manage/tap-squishies-and-trade.wiki/`.
+- First attempt: taking control of that exact tab timed out before any record was read or changed.
+- One safe retry: Chrome was reconnected using the packaged troubleshooting path. Both the user-tab list and controllable-tab list again showed the exact target tab and no other target domain.
+- Repeated failure: accessing the exact listed tab timed out again. Work stopped immediately as required; no DNS form was edited or submitted and GSC was not opened.
+- Post-stop read-only verification at `2026-08-19T16:44:30Z`: authoritative nameservers remain `launch1.spaceship.net` and `launch2.spaceship.net`; apex still returns `34.216.117.25` and `54.149.79.189`; public `www` CNAME remains absent; Vercel still returns `misconfigured`.
+- Finalization: no Chrome tab was marked for handoff or delivery, no Spaceship or GSC workflow remains controlled by this task, and the unique browser lock was released.
+
 ## Remaining release sequence
 
-Resume only after a new controller browser release: complete the two scoped Spaceship DNS changes above; run Vercel domain verification for apex and `www`; verify formal-domain HTTPS, the 308 `www` redirect, all six routes, robots, Sitemap, and canonicals; then verify the accurate GSC property, submit `https://tap-squishies-and-trade.wiki/sitemap.xml`, and obtain an explicit `Success` receipt. Until those rows pass, this site is not “pending controller acceptance” and is not “live successfully.”
+Resume only after a future controller browser release and a working Chrome connection: complete the two scoped Spaceship DNS changes above; run Vercel domain verification for apex and `www`; verify formal-domain HTTPS, the 308 `www` redirect, all six routes, robots, Sitemap, and canonicals; then verify the accurate GSC property, submit `https://tap-squishies-and-trade.wiki/sitemap.xml`, and obtain an explicit `Success` receipt. Until those rows pass, this site is not “pending controller acceptance” and is not “live successfully.”
