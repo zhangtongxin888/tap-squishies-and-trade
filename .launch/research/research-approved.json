@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "game": {
+    "official_name": "Tap Squishies and Trade",
+    "domain": "tap-squishies-and-trade.wiki"
+  },
+  "reviewed_by": "Codex",
+  "reviewed_at": "2026-08-19T13:40:00Z",
+  "approved_fact_ids": [
+    "fact-001",
+    "fact-002",
+    "fact-003",
+    "fact-004",
+    "fact-005",
+    "fact-006",
+    "fact-007",
+    "fact-008"
+  ],
+  "rejected_facts": [],
+  "notes": [
+    "Grok failed to produce a structured package after the initial call and the one permitted retry, so Codex performed the fallback research.",
+    "All approved facts were opened and checked against Roblox official API responses or the official Roblox experience listing.",
+    "The research entry was opened as a discovery signal but was not used to approve mechanics beyond Roblox creator metadata.",
+    "Only the approved fact IDs may enter the candidate design or production site."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "reviewed_by": "Codex independent research sub-agent",
+  "reviewed_at": "2026-08-19T13:41:18Z",
+  "result": "pass",
+  "confirmed": {
+    "official_name": "Tap Squishies and Trade",
+    "place_id": "85104270335777",
+    "universe_id": "10454734391",
+    "creator_group": "Mango Matcha Studio",
+    "creator_group_id": "677480985",
+    "tutorial_fact_ids": ["fact-004", "fact-005", "fact-006", "fact-007", "fact-008"]
+  },
+  "opened_sources": [
+    "https://www.roblox.com/games/85104270335777/Tap-Squishies-and-Trade",
+    "https://apis.roblox.com/universes/v1/places/85104270335777/universe",
+    "https://games.roblox.com/v1/games?universeIds=10454734391",
+    "https://groups.roblox.com/v1/groups/677480985",
+    "https://games.roblox.com/v2/groups/677480985/games?accessFilter=Public&limit=10&sortOrder=Asc",
+    "https://new-game-radar.pages.dev/genome/game/85104270335777/"
+  ],
+  "guardrails": [
+    "Do not claim coins are used to buy or open blind boxes.",
+    "Do not invent prices, rarity odds, guarantees, upgrade values, XP amounts, trade requirements, rebirth mechanics, codes, or detailed UI steps.",
+    "Describe Mango Matcha Studio as the publisher or creator group; do not claim its current owner is the sole game developer.",
+    "Qualify 80+ as the current creator-description count because it may change with updates.",
+    "Do not publish volatile visits or player counts as evergreen guide facts."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "status": "non_browser_stage_complete_waiting_for_controller_release",
+  "game": {
+    "official_name": "Tap Squishies and Trade",
+    "roblox_url": "https://www.roblox.com/games/85104270335777/Tap-Squishies-and-Trade",
+    "place_id": "85104270335777",
+    "universe_id": "10454734391",
+    "domain": "tap-squishies-and-trade.wiki",
+    "research_entry": "https://new-game-radar.pages.dev/genome/game/85104270335777/"
+  },
+  "repository": {
+    "url": "https://github.com/zhangtongxin888/tap-squishies-and-trade",
+    "isolation": "dedicated_repository_only"
+  },
+  "candidate_worktree": {
+    "path": "/Users/zhangtongxin/Documents/命运的齿轮开始转动了/.codex-tmp/tap-squishies-and-trade-20260819-01-candidate",
+    "status": "reclaimed_after_selective_integration",
+    "recovery_location": "/Users/zhangtongxin/.Trash/tap-squishies-and-trade-20260819-01-candidate"
+  },
+  "allowed_frontend_paths": [
+    "src/**",
+    "public/**",
+    "package.json",
+    "package-lock.json",
+    "next.config.*",
+    "tsconfig.json",
+    "eslint.config.*",
+    "postcss.config.*",
+    "README.md",
+    ".launch/design/kimi-design-v1.json",
+    ".launch/design/codex-design-v1.json"
+  ],
+  "target_hosting": "Vercel",
+  "providers": {
+    "research": {"name": "Grok", "model": "wrapper_default"},
+    "design": {"name": "Kimi", "model": "kimi-code/k3"},
+    "code": {"name": "Codex", "model": "GPT-5.6"}
+  },
+  "actual_providers": {
+    "research": {
+      "name": "Codex",
+      "model": "GPT-5.6",
+      "artifact": ".launch/research/codex-research-v1.json",
+      "fallback_reason": "Grok did not return a valid research JSON package after the initial call and one permitted retry."
+    },
+    "design": {
+      "name": "Codex",
+      "model": "GPT-5.6",
+      "artifact": ".launch/design/codex-design-v1.json",
+      "fallback_reason": "Kimi CLI rejected prompt mode with both permitted automatic modes; Sites had no offline candidate-design path compatible with the no-deployment-credentials restriction."
+    },
+    "code": {
+      "name": "Codex",
+      "model": "GPT-5.6"
+    }
+  },
+  "deployment": {
+    "platform": "Vercel",
+    "cli_version": "58.9.1",
+    "status": "prepared_not_deployed",
+    "blocker": "Waiting for controller release before production deployment, domain, DNS, and GSC work."
+  },
+  "restrictions": [
+    "No browser access",
+    "No credentials or deployment access for external agents",
+    "Only approved fact IDs may enter design and production content",
+    "The largest hero button must link to the on-site beginner guide"
+  ]
+}

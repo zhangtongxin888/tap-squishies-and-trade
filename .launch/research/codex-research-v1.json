@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "game": {
+    "official_name": "Tap Squishies and Trade",
+    "domain": "tap-squishies-and-trade.wiki",
+    "roblox_url": "https://www.roblox.com/games/85104270335777/Tap-Squishies-and-Trade",
+    "place_id": "85104270335777",
+    "universe_id": "10454734391",
+    "developer": "Mango Matcha Studio"
+  },
+  "provider": {
+    "name": "Codex",
+    "model": "GPT-5.6",
+    "generated_at": "2026-08-19T13:39:00Z"
+  },
+  "status": "complete",
+  "facts": [
+    {
+      "id": "fact-001",
+      "category": "identity",
+      "subject": "official_game",
+      "claim": "The Roblox experience is officially named Tap Squishies and Trade, and its root place ID is 85104270335777.",
+      "source_url": "https://games.roblox.com/v1/games?universeIds=10454734391",
+      "source_type": "roblox",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact-002",
+      "category": "identity",
+      "subject": "universe_id",
+      "claim": "Place ID 85104270335777 belongs to Roblox universe ID 10454734391.",
+      "source_url": "https://apis.roblox.com/universes/v1/places/85104270335777/universe",
+      "source_type": "roblox",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact-003",
+      "category": "identity",
+      "subject": "developer",
+      "claim": "The experience creator is the Roblox group Mango Matcha Studio, group ID 677480985.",
+      "source_url": "https://groups.roblox.com/v1/groups/677480985",
+      "source_type": "roblox",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact-004",
+      "category": "gameplay",
+      "subject": "gameplay",
+      "claim": "Tapping squishies earns coins.",
+      "source_url": "https://games.roblox.com/v1/games?universeIds=10454734391",
+      "source_type": "creator",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact-005",
+      "category": "gameplay",
+      "subject": "gameplay",
+      "claim": "Players can open blind boxes to find rare squishies.",
+      "source_url": "https://games.roblox.com/v1/games?universeIds=10454734391",
+      "source_type": "creator",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact-006",
+      "category": "progression",
+      "subject": "progression",
+      "claim": "Trading with other players earns XP.",
+      "source_url": "https://games.roblox.com/v1/games?universeIds=10454734391",
+      "source_type": "creator",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact-007",
+      "category": "progression",
+      "subject": "progression",
+      "claim": "Luck and squish powers are upgrade categories in the game.",
+      "source_url": "https://games.roblox.com/v1/games?universeIds=10454734391",
+      "source_type": "creator",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact-008",
+      "category": "progression",
+      "subject": "progression",
+      "claim": "The creator description says there are more than 80 squishies to collect, including Dumplings, Needoh, and Keycaps.",
+      "source_url": "https://games.roblox.com/v1/games?universeIds=10454734391",
+      "source_type": "creator",
+      "checked_at": "2026-08-19T13:38:00Z",
+      "confidence": "high"
+    }
+  ],
+  "new_player_guide": {
+    "first_10_minutes": [
+      "Start by tapping squishies and confirm that the coin counter increases.",
+      "Find the blind-box interaction and open a box when the game makes one available.",
+      "Inspect the squishy you receive and begin learning the collection view.",
+      "Notice that trading and upgrades are separate progression paths; their exact costs and unlock timing are not documented in the public description."
+    ],
+    "core_loop": [
+      "Tap squishies to earn coins.",
+      "Open blind boxes to discover rare squishies.",
+      "Trade with players to earn XP.",
+      "Upgrade luck and squish powers.",
+      "Grow a collection drawn from more than 80 squishies."
+    ],
+    "progression_path": [
+      "Learn the tapping action and establish a steady coin-gaining rhythm.",
+      "Add squishies through blind boxes without assuming undocumented rarity odds.",
+      "Use trading as the confirmed XP path.",
+      "Compare the available luck and squish-power upgrades before choosing where to progress."
+    ],
+    "common_mistakes": [
+      "Ignoring trading even though the creator identifies it as an XP source.",
+      "Treating unverified rarity odds, values, codes, or upgrade costs as official.",
+      "Assuming coins buy blind boxes; the public description confirms both systems but does not state the exact payment relationship."
+    ],
+    "faq": [
+      {"question": "How do you earn coins?", "answer": "Tap your squishies."},
+      {"question": "How do you earn XP?", "answer": "Trade with other players."},
+      {"question": "What can you upgrade?", "answer": "Luck and squish powers are confirmed upgrade categories."},
+      {"question": "How many squishies are there?", "answer": "The creator description says there are more than 80."}
+    ]
+  },
+  "keywords": {
+    "primary": ["Tap Squishies and Trade guide", "Tap Squishies and Trade wiki"],
+    "secondary": ["Tap Squishies and Trade beginner guide", "Tap Squishies and Trade trading", "Tap Squishies and Trade squishies", "Tap Squishies and Trade upgrades"],
+    "search_intent": ["how to play", "beginner progression", "trading XP", "squishy collection", "luck upgrades"]
+  },
+  "uncertainties": [
+    "The public creator description does not document controls, blind-box costs, rarity odds, trade safeguards, XP thresholds, upgrade prices, or a complete collection list.",
+    "No official codes, tier list, value list, or update schedule was found and none may be claimed.",
+    "Live player counts and visit counts are volatile and should not be published as evergreen guide facts."
+  ],
+  "forbidden_claims": [
+    "Do not publish invented codes, rarity percentages, value lists, upgrade costs, XP thresholds, controls, or trading rules.",
+    "Do not claim endorsement by Roblox or Mango Matcha Studio.",
+    "Do not describe coins as the blind-box currency unless a future source explicitly confirms it."
+  ],
+  "suggested_topics": [
+    "Quick start",
+    "Verified core loop",
+    "Progression priorities",
+    "Safe trading checklist framed as general caution",
+    "Known facts versus unconfirmed details",
+    "Beginner FAQ"
+  ]
+}

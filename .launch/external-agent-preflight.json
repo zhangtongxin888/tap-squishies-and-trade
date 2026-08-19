@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "checked_at": "2026-08-19T13:43:00Z",
+  "grok": {
+    "wrapper": "/Users/zhangtongxin/.codex/skills/grok/scripts/run_grok.sh",
+    "cli_version": "grok 1.0.5 (5115b46bc909)",
+    "model": "wrapper default",
+    "attempts": 2,
+    "result": "failed",
+    "failure_reason": "Initial call returned no research JSON; the permitted retry reached max turns before producing JSON.",
+    "fallback": "Codex research and fact gate"
+  },
+  "kimi": {
+    "wrapper": "/Users/zhangtongxin/.codex/skills/kimi/scripts/run_kimi.sh",
+    "cli_version": "0.37.2",
+    "model": "kimi-code/k3",
+    "attempts": 2,
+    "result": "failed_before_generation",
+    "failure_reason": "Installed Kimi CLI rejected prompt mode combined with both --auto and the single compatibility retry using --yolo.",
+    "login_attempted": false,
+    "model_switched": false,
+    "fallback": "Sites capability check, then Codex candidate implementation"
+  },
+  "sites": {
+    "result": "not_used",
+    "failure_reason": "Available Sites capability creates or hosts remote projects and has no permitted offline candidate-design entrypoint under the no-deployment-credentials constraint.",
+    "fallback": "Codex candidate implementation"
+  }
+}

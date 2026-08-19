@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "game": {
+    "official_name": "Tap Squishies and Trade",
+    "domain": "tap-squishies-and-trade.wiki"
+  },
+  "provider": {
+    "name": "Codex",
+    "model": "GPT-5.6",
+    "generated_at": "2026-08-19T13:54:32Z"
+  },
+  "research_approval_sha256": "a2d89d594e5a09a438965a6eeccf480e126483566d71b4c461993cb217f228bc",
+  "status": "ready_for_review",
+  "fallback_reason": "Grok did not produce the required structured package after its allowed retry, Kimi did not produce the candidate design, and the Sites fallback path was unavailable for this constrained candidate; Codex completed the fallback without lowering the design gate.",
+  "design_system": {
+    "theme": "Playful editorial field guide with tactile cards, bold outlines, irregular CSS squishy shapes, and strict fact-versus-advice labeling.",
+    "palette": {
+      "bg": "#fffaf0",
+      "surface": "#ffffff",
+      "text": "#17213a",
+      "accent": "#c93648"
+    },
+    "font_strategy": "System-only rounded sans-serif stack; no external fonts or font files.",
+    "spacing_scale": ["4px", "8px", "12px", "18px", "24px", "36px", "52px", "78px", "130px"],
+    "responsive_rules": [
+      "375px: single-column content, full-width CTAs, horizontally scrollable navigation, compact CSS hero shape.",
+      "768px: wrapped header navigation, two-column cards where space permits, hero retains a clear text-first hierarchy.",
+      "1440px: 1220px content shell, expanded hero stage, balanced multi-column guide layouts."
+    ]
+  },
+  "homepage": {
+    "hero": {
+      "headline": "Tap Squishies and Trade, made simple.",
+      "subheadline": "A friendly route through the confirmed parts of Tap Squishies and Trade, with facts separated from strategy suggestions.",
+      "primary_cta": {
+        "label": "Start the beginner guide",
+        "target": "/beginner-guide"
+      },
+      "secondary_cta": {
+        "label": "See the core loop",
+        "target": "/gameplay"
+      }
+    },
+    "sections": [
+      "Quick start",
+      "Verified core loop",
+      "Guide routes",
+      "Fact boundary",
+      "Beginner FAQ",
+      "Source and verification note"
+    ]
+  },
+  "page_map": [
+    { "path": "/", "purpose": "Homepage and primary path into the beginner guide." },
+    { "path": "/beginner-guide", "purpose": "Clearly labeled first-session strategy built on approved facts." },
+    { "path": "/gameplay", "purpose": "Verified core-system map and explicit unknowns." },
+    { "path": "/progression", "purpose": "Collection, XP, and upgrade planning with strategy labels." },
+    { "path": "/mistakes", "purpose": "Common unsupported assumptions and a general fact-checking routine." },
+    { "path": "/faq", "purpose": "Short fact-checked answers, disclaimer, and source note." }
+  ],
+  "components": [
+    "SiteHeader",
+    "SiteFooter",
+    "SectionHeading",
+    "FactNote",
+    "AdviceNote",
+    "NextGuide",
+    "Guide cards",
+    "Route cards",
+    "Timeline",
+    "FAQ cards"
+  ],
+  "assets": [],
+  "approved_fact_ids_used": [
+    "fact-001",
+    "fact-002",
+    "fact-003",
+    "fact-004",
+    "fact-005",
+    "fact-006",
+    "fact-007",
+    "fact-008"
+  ],
+  "files_changed": [
+    "package.json",
+    "next.config.ts",
+    "tsconfig.json",
+    "src/app/layout.tsx",
+    "src/app/globals.css",
+    "src/app/page.tsx",
+    "src/app/robots.ts",
+    "src/app/sitemap.ts",
+    "src/app/beginner-guide/page.tsx",
+    "src/app/gameplay/page.tsx",
+    "src/app/progression/page.tsx",
+    "src/app/mistakes/page.tsx",
+    "src/app/faq/page.tsx",
+    "src/components/SiteHeader.tsx",
+    "src/components/SiteFooter.tsx",
+    "src/components/GuideParts.tsx",
+    "src/components/PageIntro.tsx",
+    "src/lib/site.ts",
+    ".launch/design/codex-design-v1.json"
+  ],
+  "preview_command": "npm run dev"
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "game": {
+    "official_name": "Tap Squishies and Trade",
+    "domain": "tap-squishies-and-trade.wiki",
+    "roblox_url": "https://www.roblox.com/games/85104270335777/",
+    "place_id": "85104270335777",
+    "universe_id": "",
+    "developer": ""
+  },
+  "provider": {
+    "name": "Grok",
+    "model": "grok CLI wrapper default",
+    "generated_at": "2026-08-19T13:36:42Z"
+  },
+  "status": "failed",
+  "facts": [],
+  "new_player_guide": {
+    "first_10_minutes": [],
+    "core_loop": [],
+    "progression_path": [],
+    "common_mistakes": [],
+    "faq": []
+  },
+  "keywords": {"primary": [], "secondary": [], "search_intent": []},
+  "uncertainties": [
+    "The first Grok call returned only a preparation sentence.",
+    "The single permitted retry reached the configured turn limit before producing JSON."
+  ],
+  "forbidden_claims": [],
+  "suggested_topics": []
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "tap-squishies-and-trade-20260819-01",
+  "reviewed_by": "Codex",
+  "reviewed_at": "2026-08-19T14:05:00Z",
+  "design_package": ".launch/design/codex-design-v1.json",
+  "design_package_sha256": "0149f7b9d609a1dd56272031c062dca7032c5c0e48181c70d93a78cfd6adfa0d",
+  "research_approval_sha256": "a2d89d594e5a09a438965a6eeccf480e126483566d71b4c461993cb217f228bc",
+  "status": "approved",
+  "viewport_results": {
+    "375": {
+      "result": "pass",
+      "routes_rendered": 6,
+      "horizontal_overflow": false,
+      "primary_cta": "/beginner-guide/",
+      "primary_cta_is_largest": true,
+      "keyboard_skip_link": "pass",
+      "primary_cta_contrast_ratio": 5.12,
+      "render": ".launch/acceptance/renders/homepage-375.jpg",
+      "render_sha256": "4009495c5ede58e59e0fb8dcb2004b443e876d36d6e80d481dea3d7a360badad"
+    },
+    "768": {
+      "result": "pass",
+      "routes_rendered": 6,
+      "horizontal_overflow": false,
+      "primary_cta": "/beginner-guide/",
+      "primary_cta_is_largest": true,
+      "keyboard_skip_link": "pass",
+      "primary_cta_contrast_ratio": 5.12,
+      "render": ".launch/acceptance/renders/homepage-768.jpg",
+      "render_sha256": "579cb0c2bb502ef32596397599e848f9494e00ee4b4ed9d383cd390df22c69b9"
+    },
+    "1440": {
+      "result": "pass",
+      "routes_rendered": 6,
+      "horizontal_overflow": false,
+      "primary_cta": "/beginner-guide/",
+      "primary_cta_is_largest": true,
+      "keyboard_skip_link": "pass",
+      "primary_cta_contrast_ratio": 5.12,
+      "render": ".launch/acceptance/renders/homepage-1440.jpg",
+      "render_sha256": "28da4611c19fe1efe7b7a1c09ad4925d987c94c38eca6445670cdb82dff05756"
+    }
+  },
+  "fact_reference_result": "pass; production content stays within fact-001 through fact-008 and labels non-factual recommendations as strategy suggestions",
+  "asset_license_result": "pass; no external images, fonts, SVG illustrations, or third-party visual assets are used",
+  "navigation_result": "pass; all six pages are reachable from navigation, guide sequencing, or natural related-guide links",
+  "accessibility_result": "pass; semantic landmarks, one h1 per page, skip link, visible focus, reduced-motion rules, keyboard path, and accessible primary-button contrast verified",
+  "issues_and_resolutions": [
+    {
+      "issue": "Candidate accent produced insufficient white-text contrast.",
+      "resolution": "Codex changed the accent to #c93648; measured white-text contrast is 5.12:1."
+    },
+    {
+      "issue": "Candidate hero headline omitted the exact game name.",
+      "resolution": "Codex changed the h1 to Tap Squishies and Trade, made simple for clearer identity and SEO."
+    },
+    {
+      "issue": "The narrow navigation relied on horizontal scrolling.",
+      "resolution": "Codex changed the 375px navigation to wrap so all destinations are visible."
+    },
+    {
+      "issue": "Next.js static export required explicit static metadata routes.",
+      "resolution": "Codex marked robots and Sitemap routes force-static and reran the production build."
+    }
+  ]
+}
