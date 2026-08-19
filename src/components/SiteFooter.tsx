@@ -26,7 +26,7 @@ export function SiteFooter() {
         <div>
           <h3>Fact note</h3>
           <p className="footer-copy">
-            Gameplay facts on this site were checked on {site.verifiedOn}
+            Gameplay facts on this site were checked on {site.verifiedOn}{" "}
             against official Roblox API metadata and the creator&apos;s Roblox
             experience description.
           </p>
