@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "site": "Tap Squishies and Trade",
+  "source_commit": "fff3842ec753e2f6caaca925df834779cb36f51a",
+  "checked_at_utc": "2026-08-19T16:12:00Z",
+  "runner": "independent Codex read-only audit",
+  "browser_surface": "isolated local WebKit without login state",
+  "widths": [375, 768, 1440],
+  "routes": [
+    "/",
+    "/beginner-guide/",
+    "/gameplay/",
+    "/progression/",
+    "/mistakes/",
+    "/faq/"
+  ],
+  "checks": {
+    "render_count": 18,
+    "all_http_200": true,
+    "horizontal_overflow": false,
+    "console_errors": 0,
+    "page_errors": 0,
+    "failed_requests": 0,
+    "one_h1_per_page": true,
+    "descriptions_present": true,
+    "canonical_urls_correct": true,
+    "primary_cta_href": "/beginner-guide/",
+    "primary_cta_clicked_at_all_widths": true,
+    "primary_cta_larger_than_secondary_at_all_widths": true,
+    "next_guide_button_contrast_ratio": 15.97
+  },
+  "release_fixes": [
+    {
+      "commit": "a7bba74a2c4912ecdaf38b09d0ee9c35be3bb78c",
+      "issue": "Missing visible space after the footer verification date",
+      "result": "fixed"
+    },
+    {
+      "commit": "fff3842ec753e2f6caaca925df834779cb36f51a",
+      "issue": "Four Continue guide buttons rendered white text on a white background",
+      "result": "fixed; measured contrast 15.97:1"
+    }
+  ],
+  "result": "pass"
+}
