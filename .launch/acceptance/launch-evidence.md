@@ -8,7 +8,7 @@
 
 | Check | Formal URL or resource | Checked at (UTC) | Actual result | Evidence |
 |---|---|---:|---|---|
-| Independent repository source commit | `https://github.com/zhangtongxin888/tap-squishies-and-trade` | 2026-08-19T14:12:00Z | PASS LOCALLY / PUSH PENDING | Reviewed source commit `7f18ba270aa4c2f3d6a731a3bea8984d39ab8c05`. |
+| Independent repository source commit | `https://github.com/zhangtongxin888/tap-squishies-and-trade` | 2026-08-19T14:13:00Z | PASS | Reviewed source commit `7f18ba270aa4c2f3d6a731a3bea8984d39ab8c05` is present on the remote; remote `main` was independently read as `f04b5e21359c6912150f31a917eaefd44f1b8fd3` after the evidence commit. |
 | Research handoff | `.launch/research/codex-research-v1.json` | 2026-08-19T13:40:00Z | PASS | SHA256 `9bfaf36b791fd6d6a927464b658ab03dca64ce91e5237f280d937270058dde66`; approved fact IDs `fact-001` through `fact-008`. |
 | Fact gate | `.launch/research/research-approved.json` | 2026-08-19T13:40:00Z | PASS | SHA256 `a2d89d594e5a09a438965a6eeccf480e126483566d71b4c461993cb217f228bc`; official game, developer group, and five tutorial facts approved. |
 | Design gate | `.launch/acceptance/design-approved.json` | 2026-08-19T14:05:00Z | PASS | 375/768/1440 renders passed all six routes, primary CTA, overflow, keyboard, and contrast checks. |
