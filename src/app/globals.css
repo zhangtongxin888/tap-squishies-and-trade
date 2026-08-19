@@ -236,6 +236,7 @@ h3 {
 
 .button-light {
   background: var(--paper-strong);
+  color: var(--ink);
 }
 
 .text-link {
