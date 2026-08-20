@@ -7,9 +7,9 @@ const pages = [
   { route: "", title: "Tap Squishies and Trade Guide", canonical: `${origin}/` },
   { route: "beginner-guide", title: "Beginner Guide", canonical: `${origin}/beginner-guide/` },
   { route: "gameplay", title: "Gameplay Guide", canonical: `${origin}/gameplay/` },
-  { route: "progression", title: "Progression Guide", canonical: `${origin}/progression/` },
-  { route: "mistakes", title: "Common Mistakes", canonical: `${origin}/mistakes/` },
-  { route: "faq", title: "FAQ", canonical: `${origin}/faq/` },
+  { route: "progression", title: "Progression &amp; Collection Index", canonical: `${origin}/progression/` },
+  { route: "mistakes", title: "Mistakes &amp; Trade Safety", canonical: `${origin}/mistakes/` },
+  { route: "faq", title: "FAQ &amp; Source Notes", canonical: `${origin}/faq/` },
 ];
 
 for (const page of pages) {
@@ -27,6 +27,7 @@ assert.match(
   /class="button button-primary" href="\/beginner-guide\/"/,
   "The primary hero CTA must lead to the on-site beginner guide",
 );
+assert.ok(homepage.includes("Start the Beginner Guide"), "The primary hero CTA label must remain explicit");
 
 const robots = await readFile(join("out", "robots.txt"), "utf8");
 assert.ok(robots.includes("Allow: /"));
@@ -38,4 +39,11 @@ for (const page of pages) {
 }
 assert.equal((sitemap.match(/<url>/g) ?? []).length, pages.length, "Sitemap URL count must stay at six");
 
-console.log(`Verified ${pages.length} pages, robots.txt, sitemap.xml, canonical URLs, and the primary CTA.`);
+const approved = JSON.parse(await readFile(join(".launch", "research", "research-approved-100.json"), "utf8"));
+const design = JSON.parse(await readFile(join(".launch", "design", "sites-redesign-v2.json"), "utf8"));
+const coreIds = approved.claims.filter((claim) => claim.core_eligible === true).map((claim) => claim.claim_id).sort();
+const mappedIds = Object.values(design.fact_to_primary_page).flat().sort();
+assert.equal(coreIds.length, 106, "Approved research must contain exactly 106 core facts");
+assert.deepEqual(mappedIds, coreIds, "The design package must map every approved core fact exactly once");
+
+console.log(`Verified ${pages.length} pages, robots.txt, sitemap.xml, canonical URLs, the primary CTA, and all ${coreIds.length} core fact mappings.`);

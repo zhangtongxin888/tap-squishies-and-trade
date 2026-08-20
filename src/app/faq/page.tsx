@@ -1,66 +1,54 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionHeading } from "@/components/GuideParts";
+import { FactLedger, PageHero, SectionHeading } from "@/components/GuideParts";
+import { faqFacts } from "@/lib/content";
+import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "FAQ",
-  description: "Fact-checked answers to beginner questions about Tap Squishies and Trade coins, XP, blind boxes, upgrades, and collection size.",
-  alternates: { canonical: "/faq/" },
-};
+export const metadata = pageMetadata(
+  "FAQ & Source Notes",
+  "Fact-checked answers about Tap Squishies and Trade IDs, servers, platforms, localization, coins, XP, boxes, upgrades, and research limits.",
+  "/faq/",
+);
 
 const faqs = [
-  { q: "How do you earn coins?", a: "Tap your squishies. This is confirmed by the creator description." },
-  { q: "How do you earn XP?", a: "Trade with other players. Exact XP thresholds are not claimed by this guide." },
-  { q: "How do you find rare squishies?", a: "The creator description confirms that players can open blind boxes to find rare squishies." },
-  { q: "What can you upgrade?", a: "Luck and squish powers are confirmed upgrade categories. This guide does not claim their prices or an optimal order." },
-  { q: "How many squishies are there?", a: "The creator description says there are more than 80, including Dumplings, Needoh, and Keycaps." },
-  { q: "Do coins buy blind boxes?", a: "This guide does not make that claim. Coins and blind boxes are both confirmed, but their exact payment relationship is not included in the approved facts." },
-  { q: "Does this guide publish codes, rates, or values?", a: "No. Those claims are not in the approved research facts, so this site does not present them as official." },
-  { q: "Is this the official game site?", a: `No. ${site.name} is an independent fan-made guide and is not affiliated with or endorsed by Roblox or ${site.developer}.` },
+  { q: "How do I earn coins?", a: "The official description says tapping your squishies earns coins. Footage shows different coin popups after individual fidgets, so this guide does not claim a fixed reward." },
+  { q: "How do I earn XP?", a: "The official description says trading with other players can earn XP. Two observed trades show different XP awards, so no fixed formula is claimed." },
+  { q: "How do I find rare squishies?", a: "Opening blind boxes is a confirmed way to find rare squishies. Observed reveal percentages remain footage-specific labels, not a complete current rate table." },
+  { q: "What can I upgrade?", a: "Luck and Squish Powers are named upgradeable progression attributes. Footage shows a branching, multi-color node map with a Buy confirmation, but this guide does not claim costs or an optimal route." },
+  { q: "How large is the collection?", a: "At the research snapshot, the official description advertised more than 80 collectible squishies and named Dumplings, Needoh and Keycaps as examples." },
+  { q: "What are the Universe and Place IDs?", a: "Universe ID 10454734391; root Place ID 85104270335777. Roblox listed one place in the universe at the snapshot." },
+  { q: "Which platforms were listed?", a: "The official page listed Windows, macOS, iOS, Android and Meta Quest when checked." },
+  { q: "Does the game have private servers, badges or passes?", a: "Snapshot only: players could not create VIP/private servers, and the official badge and game-pass endpoints returned zero records when checked. Re-check Roblox for current availability." },
+  { q: "Is this official?", a: `${site.name} is an independent fan guide. The only official destination linked here is the Roblox experience page.` },
 ];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.q,
-    acceptedAnswer: { "@type": "Answer", text: faq.a },
-  })),
+  mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.q, acceptedAnswer: { "@type": "Answer", text: faq.a } })),
 };
 
 export default function FaqPage() {
   return (
     <>
-      <script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      <script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <PageHero
+        overline="FAQ · source desk"
+        title="Short answers with their limits still attached."
+        description="Use this page when you need a direct answer—or when a number needs a date before it can be trusted."
+        index="05"
       />
-      <section className="page-intro shell">
-        <div className="page-intro-copy">
-          <p className="eyebrow">Frequently asked questions</p>
-          <h1>Short answers. Clear boundaries.</h1>
-          <p className="lede">
-            Start with the verified basics, then see exactly where this independent guide stops rather than filling gaps with guesses.
-          </p>
-        </div>
-        <div className="intro-sticker" aria-hidden="true"><span>05</span><small>guide</small></div>
-      </section>
 
-      <section className="section section-tinted">
-        <div className="shell faq-preview">
-          <SectionHeading
-            eyebrow="Beginner FAQ"
-            title="The facts most players need first"
-            description="Answers reflect the research approval completed on August 19, 2026."
-          />
-          <div className="faq-list">
-            {faqs.map((faq) => (
-              <article className="faq-item" key={faq.q}>
-                <h2>{faq.q}</h2>
-                <p>{faq.a}</p>
+      <section className="section paper-section">
+        <div className="shell faq-layout">
+          <aside className="faq-index">
+            <p className="eyebrow">Quick index</p>
+            {faqs.map((faq, index) => <a href={`#faq-${index + 1}`} key={faq.q}>{String(index + 1).padStart(2, "0")} {faq.q}</a>)}
+          </aside>
+          <div className="faq-stack">
+            {faqs.map((faq, index) => (
+              <article id={`faq-${index + 1}`} key={faq.q}>
+                <span>{String(index + 1).padStart(2, "0")}</span><div><h2>{faq.q}</h2><p>{faq.a}</p></div>
               </article>
             ))}
           </div>
@@ -68,25 +56,21 @@ export default function FaqPage() {
       </section>
 
       <section className="section shell">
-        <div className="source-box">
-          <p className="eyebrow">Sources &amp; last verification</p>
-          <h2>Checked against first-party Roblox information.</h2>
-          <p>
-            Facts were last verified on {site.verifiedOn}. Identity details were checked through official Roblox API metadata. Gameplay descriptions were checked against the creator&apos;s official Roblox experience listing. Approved fact IDs: fact-001 through fact-008.
-          </p>
-          <p>
-            This page does not treat strategy advice as a mechanic. Where the approved research does not support a detail, the answer stays open.
-          </p>
-          <a className="text-link on-dark" href={site.officialGameUrl} rel="noreferrer">Open the official Roblox experience <span aria-hidden="true">↗</span></a>
-        </div>
+        <SectionHeading eyebrow="Technical file" title="The facts behind the address bar." description="These are approved core facts, with dated wording wherever Roblox could change the answer." />
+        <FactLedger title="FAQ fact ledger" notes={faqFacts} />
       </section>
 
-      <section className="section shell">
-        <SectionHeading eyebrow="Keep learning" title="Return to the guide that fits your next question" />
-        <div className="route-grid">
-          <Link className="route-card" href="/beginner-guide"><span className="route-index">Start</span><h3>Beginner guide</h3><p>Follow a clearly labeled first-session strategy.</p><strong>Start the route →</strong></Link>
-          <Link className="route-card" href="/gameplay"><span className="route-index">Understand</span><h3>Gameplay guide</h3><p>See the verified systems in one place.</p><strong>Map the loop →</strong></Link>
-          <Link className="route-card" href="/progression"><span className="route-index">Grow</span><h3>Progression guide</h3><p>Separate collection, XP, and upgrade goals.</p><strong>Plan progress →</strong></Link>
+      <section className="section archive-section">
+        <div className="shell source-policy">
+          <div><p className="eyebrow">Source policy</p><h2>Two evidence lanes. No guesswork between them.</h2></div>
+          <div className="policy-lanes">
+            <article><span>01</span><h3>Official Roblox data</h3><p>Identity, creator, listing details and dated API snapshots come from official Roblox endpoints or the official experience page.</p></article>
+            <article><span>02</span><h3>Recent gameplay footage</h3><p>Video timestamps point to approximate storyboard frames. Those notes describe only visible UI, objects, labels and values.</p></article>
+          </div>
+          <div className="source-action">
+            <Link className="button button-primary" href="/beginner-guide">Start the Beginner Guide</Link>
+            <a className="quiet-link light" href={site.officialGameUrl} rel="noreferrer">Open the official Roblox page ↗</a>
+          </div>
         </div>
       </section>
     </>

@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "package_type": "sites_frontend_redesign",
+  "game": "Tap Squishies and Trade",
+  "domain": "tap-squishies-and-trade.wiki",
+  "generated_at": "2026-08-20T12:47:44+08:00",
+  "status": "ready_for_controller_design_review",
+  "sites": {
+    "project_id": "appgprj_6a8663196bac81919b5d97824a56a274",
+    "reused_existing_project": true,
+    "create_site_called": false,
+    "saved_version": false,
+    "deployed": false,
+    "custom_domain_bound": false,
+    "role": "frontend_design_only"
+  },
+  "research_gate": {
+    "source": ".launch/research/research-approved-100.json",
+    "core_eligible_count": 106,
+    "facts_used_policy": "Only approved claims with core_eligible=true are allowed as factual content.",
+    "video_policy": "TSQ-123 through TSQ-183 are approximate storyboard-frame observations only.",
+    "dynamic_policy": "Changing values retain an explicit research-snapshot date and are never presented as live or guaranteed."
+  },
+  "information_architecture": [
+    { "path": "/", "role": "Arcade-style entry, first-ten-minutes preview, official visual identity, guide routes, and dated audience snapshot." },
+    { "path": "/beginner-guide", "role": "Five-stop first-ten-minutes route covering HUD, Fidget, boxes, Index, upgrades, and trade orientation." },
+    { "path": "/gameplay", "role": "Core loop, plaza and shop landmarks, blind-box interface, and a readable trade-table state sequence." },
+    { "path": "/progression", "role": "Collection Index, observed reveal tape, Claim XP screen, and branching upgrade map." },
+    { "path": "/mistakes", "role": "Trade confirmation and safety, lock-state ambiguity, Server Luck limits, and snapshot-value mistakes." },
+    { "path": "/faq", "role": "Direct answers, Roblox technical identity, server snapshot, localization, and evidence policy." }
+  ],
+  "visual_direction": {
+    "concept": "Squishy toy arcade plus collector field manual",
+    "avoid": ["generic purple gradient wall", "repetitive AI card stacks", "untraceable imagery"],
+    "tokens": {
+      "deep_indigo": "#08162f",
+      "indigo_surface": "#0d2348",
+      "cyan_function": "#27d6e4",
+      "coral_action": "#ff6f61",
+      "acid_lime_primary": "#d7ff55",
+      "paper": "#f4f0df",
+      "ink_on_paper": "#10213a"
+    },
+    "typography": "System-only condensed impact display stack plus Avenir/system sans and a system monospace evidence layer.",
+    "motifs": ["arcade cabinet", "ticket-strip steps", "collector Index console", "trade desk", "branching node map", "fact ledger"],
+    "primary_cta": { "label": "Start the Beginner Guide", "target": "/beginner-guide", "largest_in_first_viewport": true },
+    "roblox_link": { "role": "secondary text and header action", "target": "official Roblox experience" }
+  },
+  "responsive_plan": {
+    "375": "Single-column hero and cabinet, five compact navigation labels, full-width primary CTA, stacked ticket steps and evidence rows; no horizontal page overflow.",
+    "768": "One-column content narratives with selected two-column data grids; the media marquee keeps an eagerly decoded representative official image; trade table and Index remain visually intact.",
+    "1440": "1260px editorial shell, split hero, four-column reveal and guide structures, and persistent side-by-side evidence/context layouts."
+  },
+  "fact_to_primary_page": {
+    "/": ["TSQ-001", "TSQ-004", "TSQ-009", "TSQ-013", "TSQ-022", "TSQ-026", "TSQ-027", "TSQ-033", "TSQ-034", "TSQ-035", "TSQ-036", "TSQ-037", "TSQ-038", "TSQ-040", "TSQ-057", "TSQ-058", "TSQ-059", "TSQ-060", "TSQ-061", "TSQ-062", "TSQ-063", "TSQ-064", "TSQ-065", "TSQ-066", "TSQ-067"],
+    "/beginner-guide": ["TSQ-005", "TSQ-020", "TSQ-021", "TSQ-023", "TSQ-028", "TSQ-029", "TSQ-030", "TSQ-031", "TSQ-032", "TSQ-121", "TSQ-123", "TSQ-131", "TSQ-142", "TSQ-154", "TSQ-155", "TSQ-157", "TSQ-158", "TSQ-159", "TSQ-160", "TSQ-161", "TSQ-167", "TSQ-168", "TSQ-169"],
+    "/gameplay": ["TSQ-019", "TSQ-124", "TSQ-125", "TSQ-126", "TSQ-127", "TSQ-129", "TSQ-132", "TSQ-133", "TSQ-134", "TSQ-136", "TSQ-137", "TSQ-138", "TSQ-143", "TSQ-144", "TSQ-162", "TSQ-163", "TSQ-164", "TSQ-183"],
+    "/progression": ["TSQ-007", "TSQ-008", "TSQ-139", "TSQ-140", "TSQ-145", "TSQ-146", "TSQ-147", "TSQ-148", "TSQ-149", "TSQ-150", "TSQ-151", "TSQ-152", "TSQ-153", "TSQ-165", "TSQ-166", "TSQ-170", "TSQ-174", "TSQ-175", "TSQ-176", "TSQ-177", "TSQ-178", "TSQ-179", "TSQ-180", "TSQ-181"],
+    "/mistakes": ["TSQ-128", "TSQ-130", "TSQ-135", "TSQ-141", "TSQ-156", "TSQ-171", "TSQ-172", "TSQ-173", "TSQ-182"],
+    "/faq": ["TSQ-002", "TSQ-003", "TSQ-006", "TSQ-068", "TSQ-069", "TSQ-070", "TSQ-122"]
+  },
+  "assets": [
+    {
+      "usage": "Homepage arcade screen",
+      "fact_id": "TSQ-057",
+      "source": "Official Roblox game icon API for Universe 10454734391",
+      "resolved_url": "https://tr.rbxcdn.com/180DAY-4a60cdb52ef5d06615a01f173cea7129/512/512/Image/Png/noFilter",
+      "rights_note": "Official game promotional image, displayed with source label; no ownership claim."
+    },
+    {
+      "usage": "Homepage official media marquee",
+      "fact_ids": ["TSQ-059", "TSQ-060"],
+      "source": "Official Roblox media API for Universe 10454734391",
+      "resolved_urls": [
+        "https://tr.rbxcdn.com/180DAY-573c53f375f9a99d6922a2115f46de43/768/432/Image/Png/noFilter",
+        "https://tr.rbxcdn.com/180DAY-cd6a59d9d74be8632d969a63a9904384/768/432/Image/Png/noFilter"
+      ],
+      "rights_note": "Official game promotional images, displayed with source labels; no ownership claim."
+    }
+  ],
+  "preservation": {
+    "framework": "Next.js 16 static export",
+    "production_hosting": "Existing Vercel/Cloudflare path unchanged",
+    "canonical_domain": "https://tap-squishies-and-trade.wiki",
+    "robots": "preserved",
+    "sitemap": "preserved",
+    "ads_txt": "not present before redesign; no file removed or invented",
+    "ad_configuration": "not present before redesign; no setting removed or invented",
+    "analytics": "not present before redesign; no setting removed or invented"
+  },
+  "validation": {
+    "typecheck": "pass",
+    "build": "pass",
+    "lint": "pass via repository TypeScript lint script",
+    "test": "pass",
+    "screenshots": {
+      "375": { "path": ".launch/design/evidence/home-375.png", "size": "375x7910", "sha256": "986b99b2521531f076c729cc1dcad45b29e8db098c45e98bb88b1e4f1a63c53d" },
+      "768": { "path": ".launch/design/evidence/home-768.png", "size": "768x5617", "sha256": "5d68d93296d250ee34658c4b2d79373bb7bcd7e123010a8b6d54d60f7e4cfc10" },
+      "1440": { "path": ".launch/design/evidence/home-1440.png", "size": "1440x5843", "sha256": "6933e876d746c8ea5d5fd80da8702e6c2ef01551b94e8fa2dc0d9b592c953155" }
+    }
+  }
+}

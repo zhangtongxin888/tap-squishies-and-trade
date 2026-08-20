@@ -1,71 +1,127 @@
-import type { Metadata } from "next";
-import { AdviceNote, FactNote, NextGuide, SectionHeading } from "@/components/GuideParts";
+import { AdviceNote, FactNote, NextGuide, ObservationNote, PageHero, SectionHeading } from "@/components/GuideParts";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Beginner Guide",
-  description: "A clear first-session route for Tap Squishies and Trade, with verified facts separated from strategy suggestions.",
-  alternates: { canonical: "/beginner-guide/" },
-};
+export const metadata = pageMetadata(
+  "Beginner Guide",
+  "A practical first 10 minutes in Tap Squishies and Trade: read the HUD, fidget, inspect shops and boxes, use the Index, and approach trading carefully.",
+  "/beginner-guide/",
+);
+
+const firstTen = [
+  {
+    time: "00–02 min",
+    title: "Orient before you spend",
+    copy: "Find your equipped squishy, the Fidget control and the six-slot item bar. The HUD can show coins, XP, a multiplier and Invite Friends.",
+    ids: "TSQ-123 · TSQ-161",
+  },
+  {
+    time: "02–04 min",
+    title: "Test the fidget loop",
+    copy: "Tap the visible Fidget control once and watch the result. The official description confirms that tapping squishies earns coins.",
+    ids: "TSQ-028",
+  },
+  {
+    time: "04–06 min",
+    title: "Survey, do not speed-buy",
+    copy: "Look for shops and box collections, then note which currency button is shown. Different shop screens have displayed different currency types.",
+    ids: "Guide move · screen-first",
+  },
+  {
+    time: "06–08 min",
+    title: "Open and cross-check",
+    copy: "Blind boxes are a confirmed way to find rare squishies. After a reveal, use the Index or Backpack to inspect what the interface records.",
+    ids: "TSQ-029 · TSQ-159",
+  },
+  {
+    time: "08–10 min",
+    title: "Tour progression safely",
+    copy: "Locate the upgrade map and a trade station. Luck and Squish Powers are upgrade categories; trading with players can earn XP.",
+    ids: "TSQ-030 · TSQ-031 · TSQ-032",
+  },
+];
+
+const visualChecks = [
+  { icon: "◎", title: "Fidget", copy: "Footage shows several equipped shapes: a purple splat, a gray rounded toy, a torso-sized three-key keycap, and a blue cat-like box." },
+  { icon: "▦", title: "Backpack", copy: "One observed screen places a selected Yellow Dumpling beside Sort: Rarity, Sell and an item grid." },
+  { icon: "⌁", title: "Effects", copy: "A three-key keycap fidget produces floating coin and colored-orb effects in the footage; that visual does not establish an item stat." },
+  { icon: "☺", title: "Social", copy: "Footage also shows a THANK YOU reaction bubble and a numbered radial emote wheel." },
+];
 
 export default function BeginnerGuidePage() {
   return (
     <>
-      <section className="page-intro shell">
-        <div className="page-intro-copy">
-          <p className="eyebrow">Beginner guide</p>
-          <h1>Your first session, without the guesswork.</h1>
-          <p className="lede">
-            Learn the confirmed systems first, then use a simple strategy to explore them at your own pace. No invented odds, costs, or controls.
-          </p>
-        </div>
-        <div className="intro-sticker" aria-hidden="true"><span>01</span><small>guide</small></div>
-      </section>
+      <PageHero
+        overline="Beginner guide · first 10 minutes"
+        title="Read the room before you chase the rare."
+        description="This route is a learning order, not an official tutorial. Use the current game screen for controls, costs and unlocks."
+        index="01"
+      >
+        <div className="hero-mini-stats"><span>30-player listed capacity</span><span>R15 avatar setup</span><span>5 platform families listed</span></div>
+      </PageHero>
 
-      <section className="section section-tinted">
-        <div className="shell content-grid">
+      <section className="section paper-section">
+        <div className="shell editorial-grid">
           <div>
             <SectionHeading
-              eyebrow="First-session route"
-              title="A four-part learning plan"
-              description="Every numbered action below is a strategy suggestion. It organizes confirmed facts; it is not an official tutorial or required sequence."
+              eyebrow="The first ten"
+              title="Five checkpoints, one calm lap."
+              description="The times are a suggested pace. They do not claim that every screen unlocks in this order."
             />
-            <ol className="timeline">
-              <li><div><span className="label">Strategy suggestion</span><h3>Confirm the tap-to-coin connection</h3><p>Tap squishies and watch how coins respond. Tapping squishies to earn coins is a verified mechanic.</p></div></li>
-              <li><div><span className="label">Strategy suggestion</span><h3>Explore a blind box</h3><p>Use the blind-box system when you encounter it, then inspect the squishy you find. Blind boxes finding rare squishies is verified.</p></div></li>
-              <li><div><span className="label">Strategy suggestion</span><h3>Separate your progression paths</h3><p>Notice that trading is the confirmed XP path, while luck and squish powers are confirmed upgrade categories.</p></div></li>
-              <li><div><span className="label">Strategy suggestion</span><h3>Set a learning goal</h3><p>Choose one focus—tapping, a blind box, trading, or comparing visible upgrades—rather than trying to master everything at once.</p></div></li>
+            <ol className="minute-track">
+              {firstTen.map((step) => (
+                <li key={step.time}>
+                  <time>{step.time}</time>
+                  <div><h3>{step.title}</h3><p>{step.copy}</p><small>{step.ids}</small></div>
+                </li>
+              ))}
             </ol>
           </div>
-          <div className="side-stack">
-            <FactNote>Tapping squishies earns coins. Trading with players earns XP.</FactNote>
-            <AdviceNote>Use what your current game screen shows. This guide does not assume controls, costs, unlock timing, or XP thresholds.</AdviceNote>
+          <div className="side-stack sticky-stack">
+            <FactNote>At the research snapshot the universe was active, public and not archived; Roblox marked it as not content restricted. TSQ-005 · TSQ-023</FactNote>
+            <AdviceNote>Spend the first lap identifying what each control shows. A visible price, lock or progress bar is context—not permission to invent the rule behind it.</AdviceNote>
           </div>
         </div>
       </section>
 
       <section className="section shell">
-        <SectionHeading
-          eyebrow="Beginner checkpoints"
-          title="What you should understand before moving on"
-        />
-        <div className="card-grid three">
-          <article className="step-card"><span className="card-number">A</span><h3>Coins</h3><p>You can explain that tapping squishies earns coins without assuming what those coins purchase.</p></article>
-          <article className="step-card"><span className="card-number">B</span><h3>Collection</h3><p>You know blind boxes can reveal rare squishies and the creator description says there are more than 80 to collect.</p></article>
-          <article className="step-card"><span className="card-number">C</span><h3>Progress</h3><p>You can distinguish trading for XP from the luck and squish-power upgrade categories.</p></article>
+        <SectionHeading eyebrow="What to watch" title="Four interface clues worth recognizing." />
+        <div className="control-deck">
+          {visualChecks.map((item) => (
+            <article key={item.title}><span aria-hidden="true">{item.icon}</span><h3>{item.title}</h3><p>{item.copy}</p></article>
+          ))}
         </div>
+        <ObservationNote>
+          These descriptions come from approximate storyboard frames in recent gameplay footage. They confirm only what appeared on screen, not permanent UI, power, value or unlock rules. TSQ-155 · TSQ-157–160 · TSQ-167–169
+        </ObservationNote>
       </section>
 
-      <section className="section section-tinted">
-        <div className="shell content-grid reverse">
-          <AdviceNote>After learning the basics, compare only the upgrade choices and information visible in your own session. No single upgrade order is presented here as official or optimal.</AdviceNote>
+      <section className="section lime-section">
+        <div className="shell split-callout">
           <div>
-            <SectionHeading eyebrow="Ready for more" title="Turn the basics into a repeatable session" />
-            <p className="lede">The gameplay guide maps the confirmed systems while keeping the relationship between coins and blind boxes explicitly unclaimed.</p>
+            <p className="eyebrow">Reward sightings</p>
+            <h2>Observe the popup. Do not memorize it as a rate.</h2>
           </div>
+          <div className="popup-samples">
+            <div><strong>+300</strong><span>coins shown after one purple-splat fidget</span><small>TSQ-142</small></div>
+            <div><strong>CLAIMED</strong><span>Quest reward message shown after an interaction</span><small>TSQ-154</small></div>
+            <div><strong>+1</strong><span>timed Server Luck status visible in one HUD</span><small>TSQ-131</small></div>
+          </div>
+          <p className="snapshot-warning">Observed screens only. Reward amounts, duration and triggers may differ; the footage does not establish guaranteed values.</p>
         </div>
       </section>
 
-      <NextGuide href="/gameplay" kicker="Next: core loop" title="See how the verified systems fit together" description="Move from first-session orientation to a clean map of tapping, boxes, trading, upgrades, and collection." />
+      <section className="section shell platform-desk">
+        <div>
+          <p className="eyebrow">Before you join</p>
+          <h2>A quick compatibility note.</h2>
+        </div>
+        <div className="platform-list" aria-label="Listed operating system families">
+          {['Windows', 'macOS', 'iOS', 'Android', 'Meta Quest'].map((platform) => <span key={platform}>{platform}</span>)}
+        </div>
+        <p>Snapshot wording matters: the official experience page listed these five operating-system families when checked. Roblox also reported MorphToR15 and a listed server capacity of 30. TSQ-020 · TSQ-021 · TSQ-121</p>
+      </section>
+
+      <NextGuide href="/gameplay" kicker="Next file · 02" title="Step behind the arcade glass" description="Map the plaza, shop shelves, blind-box screen and trade-table states without guessing hidden rules." />
     </>
   );
 }

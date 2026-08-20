@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "A clear, fact-checked beginner guide to Tap Squishies and Trade: core gameplay, progression ideas, common mistakes, and FAQ.",
+    "A collector-first guide to Tap Squishies and Trade: the first 10 minutes, fidgeting, blind boxes, the Index, upgrades, trade safety, and FAQ.",
   keywords: [
     "Tap Squishies and Trade guide",
     "Tap Squishies and Trade wiki",
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `${site.gameName} Guide`,
     description:
-      "Learn the verified core loop, plan your first session, and avoid unconfirmed claims.",
+      "Learn the first-session signals, decode the collection Index, and slow down at the trade table.",
     url: site.url,
   },
   twitter: {
     card: "summary",
     title: `${site.gameName} Guide`,
     description:
-      "A fact-checked beginner path for tapping, collecting, trading, and upgrading.",
+      "A fact-checked collector field guide for tapping, unboxing, indexing, trading, and upgrading.",
   },
 };
 

@@ -1,80 +1,70 @@
-import type { Metadata } from "next";
-import { AdviceNote, NextGuide, SectionHeading } from "@/components/GuideParts";
+import { AdviceNote, NextGuide, ObservationNote, PageHero, SectionHeading } from "@/components/GuideParts";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Common Mistakes",
-  description: "Avoid common Tap Squishies and Trade guide assumptions about XP, coins, boxes, rarity, values, and upgrades.",
-  alternates: { canonical: "/mistakes/" },
-};
+export const metadata = pageMetadata(
+  "Mistakes & Trade Safety",
+  "Avoid Tap Squishies and Trade mistakes around trade confirmation, duplicate labels, box progress, locked content, Server Luck, and observed prices.",
+  "/mistakes/",
+);
 
 const mistakes = [
-  { title: "Ignoring the XP path", text: "Trading with other players is the confirmed way to earn XP. Strategy suggestion: include trading in your learning plan when you feel ready." },
-  { title: "Linking coins to boxes without proof", text: "Tapping earns coins and blind boxes reveal rare squishies, but this guide does not claim that coins purchase blind boxes." },
-  { title: "Treating rarity odds as official", text: "Blind boxes and rare squishies are confirmed. Exact odds are not included in the approved research, so this guide does not publish them." },
-  { title: "Following an assumed upgrade order", text: "Luck and squish powers are confirmed categories. Strategy suggestion: compare the current choices shown in your session." },
-  { title: "Trusting a value list as fact", text: "Trading for XP is confirmed. Specific item values are not part of the approved facts and are not presented as official here." },
-  { title: "Expecting exact XP thresholds", text: "Trading earns XP, but this guide does not claim exact thresholds, levels, or unlock timing." },
+  { id: "TSQ-125", title: "Mixing up two percentages", fact: "The observed trade picker shows percentage labels and duplicate-count badges.", move: "Read the label beside each number; do not treat every number as value or rarity." },
+  { id: "TSQ-126", title: "Assuming selected means final", fact: "A selected item appears in the offer panel and a Drop One control becomes visible.", move: "Review the offer panel again after every add or removal." },
+  { id: "TSQ-130", title: "Rushing the last state", fact: "When both panels show ACCEPT, one observed interface enters a HOLD FOR 3 countdown.", move: "Use that visible pause to compare both sides one final time." },
+  { id: "TSQ-135", title: "Calling progress an item rate", fact: "One opening shows an on-box percentage progress value.", move: "Keep progress and reveal-screen percentages separate unless the current UI explicitly links them." },
+  { id: "TSQ-141 · TSQ-156", title: "Inventing unlock requirements", fact: "Footage shows a locked Triple Keycap detail and a Candy Island portal with a lock icon.", move: "A lock proves only that the screen was locked; it does not reveal the requirement." },
+  { id: "TSQ-171 · TSQ-172", title: "Treating Server Luck as fully documented", fact: "Observed screens show +0 to +1 progression and a banner saying a player bought +1 Server Luck.", move: "Do not invent price, duration, stacking or a probability increase." },
+  { id: "TSQ-173", title: "Freezing an old shop price", fact: "Around 01:43 in August 15 footage, Cube Jelly displays 850 coins and Splat Jelly displays 65 purple currency.", move: "Treat both values as footage snapshots and check today’s screen before spending." },
+  { id: "TSQ-128 · TSQ-182", title: "Turning two rewards into a formula", fact: "Two trades show +158 and +348 XP; one Spider Guy Popsicle fidget is followed by +50 coins.", move: "Different observations are not enough to prove a calculation or guaranteed payout." },
+  { id: "TSQ-019 · TSQ-069 · TSQ-070", title: "Turning absence into permanence", fact: "At the API snapshot there were no creatable VIP/private servers, badge records or game-pass records.", move: "Say ‘none returned at the snapshot,’ then re-check Roblox for current availability." },
 ];
 
 export default function MistakesPage() {
   return (
     <>
-      <section className="page-intro shell">
-        <div className="page-intro-copy">
-          <p className="eyebrow">Common mistakes</p>
-          <h1>Keep assumptions out of your plan.</h1>
-          <p className="lede">
-            The easiest mistakes happen when a confirmed system gets mixed with an unconfirmed price, rate, value, or rule. Use this page as a quick fact boundary.
-          </p>
-        </div>
-        <div className="intro-sticker" aria-hidden="true"><span>04</span><small>guide</small></div>
-      </section>
+      <PageHero
+        overline="Mistakes · trade safety"
+        title="What the screens do—and do not—confirm."
+        description="Most bad decisions start when a visible label gets promoted into a permanent rule. Keep the observation, drop the assumption."
+        index="04"
+      />
 
-      <section className="section section-tinted">
-        <div className="shell">
-          <SectionHeading eyebrow="Six checks" title="Common guide mistakes to avoid" />
-          <div className="mistake-grid">
-            {mistakes.map((mistake, index) => (
-              <article className="mistake-card" key={mistake.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div><h3>{mistake.title}</h3><p>{mistake.text}</p></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section shell content-grid">
-        <div>
-          <SectionHeading
-            eyebrow="Before you act"
-            title="Use a three-question pause"
-            description="This is general strategy advice, not a game mechanic or trading rule."
-          />
-          <div className="card-grid three">
-            <article className="step-card"><span className="card-number">1</span><h3>Is it verified?</h3><p>Look for a clear source before treating a rate, value, cost, code, or rule as fact.</p></article>
-            <article className="step-card"><span className="card-number">2</span><h3>Is it current?</h3><p>Use the information visible in your present game session for choices that can change.</p></article>
-            <article className="step-card"><span className="card-number">3</span><h3>Is it labeled?</h3><p>Separate a writer&apos;s strategy suggestion from a documented mechanic.</p></article>
-          </div>
-        </div>
-        <AdviceNote>For any player-to-player exchange, slow down and review the current in-game information yourself. This is general caution, not a claim about the game&apos;s trading rules.</AdviceNote>
-      </section>
-
-      <section className="section section-tinted">
-        <div className="shell content-grid reverse">
-          <div className="source-box">
-            <p className="eyebrow">Editorial rule</p>
-            <h2>No guess becomes a mechanic.</h2>
-            <p>This site omits unsupported codes, rates, values, prices, thresholds, controls, and trading rules. A missing detail stays open until it can be verified.</p>
-          </div>
+      <section className="section warning-section">
+        <div className="shell safe-trade">
           <div>
-            <SectionHeading eyebrow="When details are missing" title="Let the uncertainty stay visible" />
-            <p className="lede">A useful guide can still explain the confirmed loop without filling every gap. The FAQ makes those boundaries easy to scan.</p>
+            <SectionHeading eyebrow="Trade desk" title="Use a three-stop confirmation habit." />
+            <div className="confirm-track">
+              <article><span>ADD</span><h3>Inspect your side</h3><p>Confirm the item icon and duplicate count match what you meant to offer.</p></article>
+              <article><span>COMPARE</span><h3>Read their side</h3><p>Keep the two participant panels distinct and compare the final visible contents.</p></article>
+              <article><span>HOLD</span><h3>Use the countdown</h3><p>If the interface enters HOLD FOR 3, use the pause instead of treating it as decoration.</p></article>
+            </div>
           </div>
+          <AdviceNote>This is a safety habit, not an official value system. The approved facts confirm visible trade states, not fairness rules or item valuations.</AdviceNote>
         </div>
       </section>
 
-      <NextGuide href="/faq" kicker="Next: FAQ" title="Get short answers with clear limits" description="Review the verified basics, source note, and the questions this guide intentionally leaves open." />
+      <section className="section shell mistake-list-section">
+        <SectionHeading eyebrow="Nine misreads" title="Replace the shortcut with a safer sentence." description="Every row preserves the approved observation and states the smallest responsible action you can take from it." />
+        <div className="mistake-ledger">
+          {mistakes.map((mistake, index) => (
+            <article key={mistake.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div><p className="ledger-ids">{mistake.id}</p><h3>{mistake.title}</h3></div>
+              <p><strong>Observed:</strong> {mistake.fact}</p>
+              <p><strong>Safer move:</strong> {mistake.move}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section trade-section">
+        <div className="shell boundary-grid">
+          <div><p className="eyebrow">The evidence boundary</p><h2>One frame is a clue, not a contract.</h2></div>
+          <ObservationNote>All TSQ-123–183 video timestamps locate approximate storyboard frames. Screens can change, and a frame cannot establish hidden mechanics, permanent prices, future availability, fixed rewards or a complete probability table.</ObservationNote>
+        </div>
+      </section>
+
+      <NextGuide href="/faq" kicker="Next file · 05" title="Check the technical details" description="Find the IDs, platform list, localization snapshot, server sample and source boundaries in one place." />
     </>
   );
 }

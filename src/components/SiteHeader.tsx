@@ -7,11 +7,11 @@ export function SiteHeader() {
       <div className="shell header-inner">
         <Link className="brand" href="/" aria-label={`${site.name} home`}>
           <span className="brand-mark" aria-hidden="true">
-            S
+            SQ
           </span>
           <span>
             <strong>{site.name}</strong>
-            <small>{site.gameName} guide</small>
+            <small>collector field guide</small>
           </span>
         </Link>
         <nav className="site-nav" aria-label="Primary navigation">
@@ -21,6 +21,9 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
+        <a className="play-link" href={site.officialGameUrl} rel="noreferrer">
+          Roblox <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </header>
   );

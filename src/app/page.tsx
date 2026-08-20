@@ -1,202 +1,142 @@
 import Link from "next/link";
-import { SectionHeading } from "@/components/GuideParts";
+import { FactLedger, SectionHeading } from "@/components/GuideParts";
+import { homeLedger, officialMedia, snapshot } from "@/lib/content";
 import { site } from "@/lib/site";
+
+const routes = [
+  { no: "01", href: "/beginner-guide", label: "10-minute start", copy: "Read the HUD, fidget once, inspect a box, then find the Index." },
+  { no: "02", href: "/gameplay", label: "How the loop fits", copy: "Connect fidgeting, shops, blind boxes and the trade table." },
+  { no: "03", href: "/progression", label: "Collector index", copy: "Decode collection grids, reveals, XP claims and the upgrade map." },
+  { no: "04", href: "/mistakes", label: "Trade safely", copy: "Pause on confirmation, prices, percentages and Server Luck claims." },
+];
 
 export default function HomePage() {
   return (
     <>
       <section className="hero shell">
-        <div>
-          <p className="eyebrow">A fact-checked fan guide</p>
+        <div className="hero-copy">
+          <p className="eyebrow">The collector&apos;s arcade manual</p>
           <h1>
-            Tap Squishies and Trade,
-            <br />
-            <span>made simple.</span>
+            Squeeze.<br />
+            <span>Reveal.</span><br />
+            Trade.
           </h1>
           <p className="lede">
-            A friendly route through the confirmed parts of {site.gameName}—so
-            you can learn the loop, make sense of progression, and keep
-            unverified claims out of your plan.
+            A field guide to {site.gameName}: learn the first-session signals,
+            read the collection Index, and slow down at the trade table.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/beginner-guide">
-              Start the beginner guide <span aria-hidden="true">→</span>
+              Start the Beginner Guide <span aria-hidden="true">→</span>
             </Link>
-            <Link className="button button-secondary" href="/gameplay">
-              See the core loop
+            <Link className="button button-secondary" href="/progression#collector-index">
+              Open the Collection Index
             </Link>
           </div>
           <p className="hero-fact">
-            Verified {site.verifiedOn} · Clear labels separate facts from
-            strategy suggestions.
+            Built from 106 approved core facts · verified {site.verifiedOn}
           </p>
+          <a className="quiet-link" href={site.officialGameUrl} rel="noreferrer">
+            Play on Roblox <span aria-hidden="true">↗</span>
+          </a>
         </div>
-        <div className="squishy-stage" aria-hidden="true">
-          <div className="squishy-face">
-            <span>tap!</span>
+
+        <div className="arcade-cabinet">
+          <div className="cabinet-topline"><span>COLLECTOR MODE</span><span>80+ LISTED</span></div>
+          <figure className="cabinet-screen">
+            <img src={officialMedia.icon.src} alt={officialMedia.icon.alt} loading="eager" decoding="sync" fetchPriority="high" />
+            <figcaption>{officialMedia.icon.source} · {officialMedia.icon.factId}</figcaption>
+          </figure>
+          <div className="cabinet-controls" aria-hidden="true">
+            <span className="joystick"><i /></span>
+            <span className="arcade-button coral" />
+            <span className="arcade-button cyan" />
+            <span className="arcade-button lime" />
           </div>
-          <div className="stage-tag">80+ squishies named in the creator description</div>
+          <div className="cabinet-slot">INSERT CURIOSITY</div>
         </div>
       </section>
 
-      <div className="proof-strip" aria-label="Guide highlights">
-        <div className="proof-item">
-          <strong>6</strong>
-          <span>focused guide pages</span>
-        </div>
-        <div className="proof-item">
-          <strong>8</strong>
-          <span>approved facts used</span>
-        </div>
-        <div className="proof-item">
-          <strong>0</strong>
-          <span>invented rates or values</span>
-        </div>
-      </div>
-
-      <section className="section shell">
-        <SectionHeading
-          eyebrow="Quick start"
-          title="Four ideas for your first session"
-          description="The mechanics below are verified. The order is a strategy suggestion, not a required in-game sequence."
-        />
-        <div className="card-grid">
-          <article className="guide-card">
-            <span className="card-number">01</span>
-            <h3>Learn the tap</h3>
-            <p>Tap squishies to earn coins. Start by watching that connection.</p>
-          </article>
-          <article className="guide-card">
-            <span className="card-number">02</span>
-            <h3>Try a blind box</h3>
-            <p>Blind boxes are the confirmed way to find rare squishies.</p>
-          </article>
-          <article className="guide-card">
-            <span className="card-number">03</span>
-            <h3>Notice both paths</h3>
-            <p>Trading earns XP, while luck and squish powers are upgrade categories.</p>
-          </article>
-          <article className="guide-card">
-            <span className="card-number">04</span>
-            <h3>Grow the collection</h3>
-            <p>The creator description says there are more than 80 squishies.</p>
-          </article>
+      <section className="game-strip" aria-label="Core guide loop">
+        <div className="shell game-strip-inner">
+          <span>FIDGET</span><i>→</i><span>COINS</span><i>→</i><span>BLIND BOX</span><i>→</i><span>INDEX</span><i>→</i><span>TRADE</span>
         </div>
       </section>
 
-      <section className="section section-tinted">
-        <div className="shell loop-grid">
+      <section className="section shell first-run">
+        <div className="section-side-label">START HERE / 01</div>
+        <div>
           <SectionHeading
-            eyebrow="Verified core loop"
-            title="Five confirmed parts, one clear map"
-            description="This order is a simple way to understand the systems; it does not claim a mandatory sequence."
+            eyebrow="First-session route"
+            title="Your first ten minutes need landmarks, not a tier list."
+            description="The guide starts with visible interface cues: the Fidget control, coin and XP counters, box screens, the Index and the trade table. Each recommendation is labeled as guidance—not a guaranteed game sequence."
           />
-          <ol className="loop-list">
-            <li>
-              <div><strong>Tap squishies</strong><span>The confirmed coin-earning action.</span></div>
-            </li>
-            <li>
-              <div><strong>Earn coins</strong><span>A confirmed result of tapping—without assuming what coins purchase.</span></div>
-            </li>
-            <li>
-              <div><strong>Open blind boxes</strong><span>A confirmed route to finding rare squishies.</span></div>
-            </li>
-            <li>
-              <div><strong>Trade with players</strong><span>The confirmed way to earn XP.</span></div>
-            </li>
-            <li>
-              <div><strong>Explore upgrades</strong><span>Luck and squish powers are confirmed upgrade categories.</span></div>
-            </li>
-          </ol>
+          <div className="ticket-steps">
+            <article><span>00:00–02:00</span><h3>Read the HUD</h3><p>Locate coins, XP, your equipped squishy and the Fidget control before spending anything.</p></article>
+            <article><span>02:00–05:00</span><h3>Watch one result</h3><p>Fidget once and observe the response. Footage shows coin popups, but values vary between examples.</p></article>
+            <article><span>05:00–08:00</span><h3>Open, then inspect</h3><p>Learn the Pick A Box screen and check the revealed item inside the Index.</p></article>
+            <article><span>08:00–10:00</span><h3>Tour the trade table</h3><p>Notice the two offers and confirmation states. You do not need to rush a trade.</p></article>
+          </div>
+          <Link className="text-link" href="/beginner-guide">Walk the complete first session <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 
-      <section className="section shell">
-        <SectionHeading
-          eyebrow="Choose your route"
-          title="Go from first tap to a cleaner plan"
-          description="Each guide stays honest about what is verified and what is simply a practical suggestion."
-        />
-        <div className="route-grid">
-          <Link className="route-card" href="/beginner-guide">
-            <span className="route-index">Route 01 · Start</span>
-            <h3>Beginner guide</h3>
-            <p>A calm first-session sequence built around the confirmed systems.</p>
-            <strong>Start here →</strong>
-          </Link>
-          <Link className="route-card" href="/progression">
-            <span className="route-index">Route 02 · Grow</span>
-            <h3>Progression guide</h3>
-            <p>Separate collection, XP, and upgrades without inventing costs or thresholds.</p>
-            <strong>Plan progress →</strong>
-          </Link>
-          <Link className="route-card" href="/mistakes">
-            <span className="route-index">Route 03 · Check</span>
-            <h3>Common mistakes</h3>
-            <p>Avoid assumptions about rates, values, codes, and the coin-to-box relationship.</p>
-            <strong>Check mistakes →</strong>
-          </Link>
-        </div>
-      </section>
-
-      <section className="section section-tinted">
+      <section className="section media-section">
         <div className="shell">
           <SectionHeading
-            eyebrow="Fact boundary"
-            title="Know what this guide will—and will not—claim"
+            eyebrow="Official cabinet art"
+            title="Soft toys, loud signals."
+            description="These images come from the game’s official Roblox media set. They establish the guide’s tactile shapes and trade-table language; they are promotional artwork, not proof of detailed rules."
           />
-          <div className="truth-grid">
-            <article className="truth-panel verified">
-              <h3>Verified here</h3>
-              <ul className="check-list">
-                <li>Tapping squishies earns coins.</li>
-                <li>Blind boxes can reveal rare squishies.</li>
-                <li>Trading with players earns XP.</li>
-                <li>Luck and squish powers are upgrade categories.</li>
-                <li>The creator description says there are 80+ squishies.</li>
-              </ul>
-            </article>
-            <article className="truth-panel unconfirmed">
-              <h3>Not claimed here</h3>
-              <ul className="dash-list">
-                <li>Rarity odds or tier rankings</li>
-                <li>Trade values or special trading rules</li>
-                <li>Upgrade prices or XP thresholds</li>
-                <li>Codes or a release schedule</li>
-                <li>That coins are the blind-box currency</li>
-              </ul>
-            </article>
+          <div className="media-marquee">
+            <figure className="media-frame media-frame-wide">
+              <img src={officialMedia.stretch.src} alt={officialMedia.stretch.alt} loading="eager" decoding="sync" fetchPriority="high" />
+              <figcaption>{officialMedia.stretch.source} · {officialMedia.stretch.factId}</figcaption>
+            </figure>
+            <figure className="media-frame">
+              <img src={officialMedia.trade.src} alt={officialMedia.trade.alt} loading="eager" decoding="sync" />
+              <figcaption>{officialMedia.trade.source} · {officialMedia.trade.factId}</figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section className="section shell faq-preview">
-        <SectionHeading
-          eyebrow="Fast answers"
-          title="The questions beginners ask first"
-          description="Short answers, grounded in the approved research."
-        />
-        <div className="faq-list">
-          <article className="faq-item"><h3>How do I earn coins?</h3><p>Tap your squishies.</p></article>
-          <article className="faq-item"><h3>How do I earn XP?</h3><p>Trade with other players.</p></article>
-          <article className="faq-item"><h3>What can I upgrade?</h3><p>Luck and squish powers are confirmed upgrade categories.</p></article>
-          <Link className="text-link" href="/faq">Read every answer <span aria-hidden="true">→</span></Link>
+      <section className="section shell route-board">
+        <div className="route-board-head">
+          <SectionHeading eyebrow="Pick a lane" title="Every question has a shorter route." />
+          <p>Read in order, or jump directly to the interface you are looking at.</p>
+        </div>
+        <div className="route-lines">
+          {routes.map((route) => (
+            <Link href={route.href} className="route-line" key={route.href}>
+              <span>{route.no}</span><h3>{route.label}</h3><p>{route.copy}</p><strong aria-hidden="true">↗</strong>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="section shell">
-        <div className="source-box">
-          <p className="eyebrow">Source &amp; verification note</p>
-          <h2>Facts first. Advice labeled.</h2>
-          <p>
-            Gameplay claims were last checked on {site.verifiedOn} against official Roblox API metadata and the creator&apos;s official Roblox experience description. The guide uses only the approved research facts below.
-          </p>
-          <div aria-label="Approved fact identifiers">
-            {Array.from({ length: 8 }, (_, index) => (
-              <code key={index}>fact-{String(index + 1).padStart(3, "0")}</code>
+      <section className="snapshot-section">
+        <div className="shell snapshot-grid">
+          <div>
+            <p className="eyebrow">Dated community snapshot</p>
+            <h2>Useful context, frozen in time.</h2>
+            <p>These values were returned at {snapshot.observedAt}. They are preserved as a research snapshot and are not live counters.</p>
+          </div>
+          <dl>
+            {snapshot.stats.map((stat) => (
+              <div key={stat.id}><dt>{stat.label}</dt><dd>{stat.value}</dd><small>{stat.id}</small></div>
             ))}
-          </div>
+          </dl>
         </div>
+      </section>
+
+      <section className="section shell evidence-section">
+        <SectionHeading
+          eyebrow="Evidence desk"
+          title="What the homepage is allowed to say."
+          description="Each statement below rolls up approved core facts. Dynamic figures stay dated, and media descriptions stay limited to what the artwork visibly depicts."
+        />
+        <FactLedger title="Homepage fact ledger" notes={homeLedger} />
       </section>
     </>
   );

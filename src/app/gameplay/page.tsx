@@ -1,88 +1,83 @@
-import type { Metadata } from "next";
-import { AdviceNote, FactNote, NextGuide, SectionHeading } from "@/components/GuideParts";
+import { AdviceNote, NextGuide, ObservationNote, PageHero, SectionHeading } from "@/components/GuideParts";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Gameplay Guide",
-  description: "Understand the verified Tap Squishies and Trade core loop without invented costs, odds, or controls.",
-  alternates: { canonical: "/gameplay/" },
-};
+export const metadata = pageMetadata(
+  "Gameplay Guide",
+  "Understand Tap Squishies and Trade fidgeting, shop and blind-box screens, the plaza, trade stations, and confirmation flow.",
+  "/gameplay/",
+);
+
+const tradeStates = [
+  { n: "01", title: "Wait for a partner", copy: "A station can show one occupied panel while the other reads Waiting.", ids: "TSQ-124" },
+  { n: "02", title: "Choose an item", copy: "The picker shows squishy thumbnails; selected items can move into your offer beside a Drop One control.", ids: "TSQ-125 · TSQ-126" },
+  { n: "03", title: "Read both offers", copy: "Each participant has a separate item panel, while offered squishies can also appear as models on the table.", ids: "TSQ-127 · TSQ-163" },
+  { n: "04", title: "Use the action zones", copy: "Observed stations use a red X, blue plus and green check. Treat the current labels as authoritative.", ids: "TSQ-162" },
+];
 
 export default function GameplayPage() {
   return (
     <>
-      <section className="page-intro shell">
-        <div className="page-intro-copy">
-          <p className="eyebrow">Gameplay guide</p>
-          <h1>A clean map of the core systems.</h1>
-          <p className="lede">
-            Five confirmed parts shape the experience. This guide connects them without claiming a mandatory order or an undocumented currency relationship.
-          </p>
-        </div>
-        <div className="intro-sticker" aria-hidden="true"><span>02</span><small>guide</small></div>
-      </section>
+      <PageHero
+        overline="Gameplay guide · the visible loop"
+        title="From fidget control to trade table."
+        description="The game mixes tactile tapping, themed shop shelves, blind-box reveals and two-player trading. This page maps the screens that connect them."
+        index="02"
+      />
 
-      <section className="section section-tinted">
-        <div className="shell loop-grid">
+      <section className="section paper-section">
+        <div className="shell loop-console">
           <div>
-            <SectionHeading eyebrow="Verified mechanics" title="What the creator description confirms" />
-            <FactNote>The game is officially named Tap Squishies and Trade and was created by Mango Matcha Studio.</FactNote>
+            <SectionHeading eyebrow="Core loop" title="A loop you can read at a glance." description="Only the tap-to-coins, box-to-rare-squishy and trade-to-XP relationships are confirmed as mechanics. The connecting order is a guide structure." />
           </div>
-          <ol className="loop-list">
-            <li><div><strong>Tap squishies</strong><span>Tapping squishies earns coins.</span></div></li>
-            <li><div><strong>Earn coins</strong><span>Coins are confirmed; their exact uses are not claimed here.</span></div></li>
-            <li><div><strong>Open blind boxes</strong><span>Blind boxes can reveal rare squishies.</span></div></li>
-            <li><div><strong>Trade</strong><span>Trading with other players earns XP.</span></div></li>
-            <li><div><strong>Upgrade and collect</strong><span>Luck and squish powers are upgrade categories, and the creator description says the collection exceeds 80 squishies.</span></div></li>
+          <ol>
+            <li><span>01</span><strong>Fidget a squishy</strong><p>Tapping your squishies earns coins.</p></li>
+            <li><span>02</span><strong>Read the shop button</strong><p>Observed panels use coins or a purple currency depending on the collection shown.</p></li>
+            <li><span>03</span><strong>Pick a box</strong><p>The observed box screen has three positions and an Open control.</p></li>
+            <li><span>04</span><strong>Check the Index</strong><p>Use collection grids and selected-item details as visible progress records.</p></li>
+            <li><span>05</span><strong>Approach a trade</strong><p>Trading with another player can earn XP; no value formula is claimed here.</p></li>
           </ol>
         </div>
       </section>
 
-      <section className="section shell">
-        <SectionHeading
-          eyebrow="Session rhythm"
-          title="A practical way to explore the loop"
-          description="The sequence below is strategy advice. It is not a claim about required progression."
-        />
-        <div className="card-grid">
-          <article className="step-card"><span className="card-number">01</span><span className="label">Strategy suggestion</span><h3>Start with tapping</h3><p>Use the confirmed tap-to-coin action as your easiest reference point.</p></article>
-          <article className="step-card"><span className="card-number">02</span><span className="label">Strategy suggestion</span><h3>Study each result</h3><p>When exploring blind boxes, pay attention to the squishies you receive without assuming published rarity odds.</p></article>
-          <article className="step-card"><span className="card-number">03</span><span className="label">Strategy suggestion</span><h3>Try the XP path</h3><p>Explore trading when you are ready, remembering that trading is the confirmed source of XP.</p></article>
-          <article className="step-card"><span className="card-number">04</span><span className="label">Strategy suggestion</span><h3>Compare visible choices</h3><p>Review the luck and squish-power upgrade information displayed in your session before choosing.</p></article>
+      <section className="section shell shop-floor">
+        <div className="shop-map" aria-hidden="true">
+          <span className="fountain">PLAZA<br />FOUNTAIN</span>
+          <span className="station s1">TRADE</span><span className="station s2">TRADE</span><span className="station s3">TRADE</span>
+          <span className="shop candy">CANDY</span><span className="shop jelly">JELLY</span><span className="shop keycap">KEYCAP</span>
         </div>
-      </section>
-
-      <section className="section section-tinted">
-        <div className="shell truth-grid">
-          <article className="truth-panel verified">
-            <h2>Safe to rely on</h2>
-            <ul className="check-list">
-              <li>Tap squishies to earn coins</li>
-              <li>Open blind boxes to find rare squishies</li>
-              <li>Trade with players to earn XP</li>
-              <li>Luck and squish powers are upgrade categories</li>
-            </ul>
-          </article>
-          <article className="truth-panel unconfirmed">
-            <h2>Keep open</h2>
-            <ul className="dash-list">
-              <li>The exact uses of coins</li>
-              <li>Blind-box prices and rarity odds</li>
-              <li>Controls and unlock timing</li>
-              <li>Upgrade costs and XP thresholds</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section className="section shell content-grid reverse">
-        <AdviceNote>Treat the in-game interface as the current source for costs, controls, and unlocks. Those details are intentionally not filled in by this guide.</AdviceNote>
         <div>
-          <SectionHeading eyebrow="Build from the loop" title="Progress with separate goals" />
-          <p className="lede">Next, split your plan into collecting, trading for XP, and comparing the two confirmed upgrade categories.</p>
+          <SectionHeading eyebrow="World landmarks" title="Use the plaza like a menu." />
+          <p>The observed main plaza places multiple trade stations around a central fountain. The Candy area uses pink ground, candy-shaped trees and striped archways, with a large CANDY storefront sign.</p>
+          <p>Shop footage shows Gumdrop and Gummy Bear box groups, Cube Jelly and Splat Jelly collections, plus Classic, Cat and Triple Keycap collections. Buttons visibly use coin and purple-currency labels—but the guide does not generalize a permanent price system.</p>
+          <p className="fact-run">TSQ-132–138 · TSQ-143–144</p>
         </div>
       </section>
 
-      <NextGuide href="/progression" kicker="Next: progression" title="Build a flexible route forward" description="Use the confirmed systems as anchors while leaving undocumented prices and thresholds open." />
+      <section className="section trade-section">
+        <div className="shell">
+          <SectionHeading eyebrow="At the trade table" title="Four states to inspect before you confirm." description="The table is the clearest place to slow down. Make sure the two offer panels still match what you intend to exchange." />
+          <div className="trade-board" aria-hidden="true">
+            <div className="trade-player"><span>YOU</span><div className="offer-shape cube" /><small>your offer panel</small></div>
+            <div className="trade-controls"><button type="button" tabIndex={-1}>×</button><button type="button" tabIndex={-1}>＋</button><button type="button" tabIndex={-1}>✓</button></div>
+            <div className="trade-player"><span>PARTNER</span><div className="offer-shape pop" /><small>their offer panel</small></div>
+          </div>
+          <div className="trade-state-list">
+            {tradeStates.map((state) => <article key={state.n}><span>{state.n}</span><div><h3>{state.title}</h3><p>{state.copy}</p><small>{state.ids}</small></div></article>)}
+          </div>
+          <ObservationNote>Black cube-like, popsicle-shaped, and other squishy forms are shown as both offer icons and physical table models. A crowd of identical yellow-and-blue models also appears near a trade pad. Those visuals do not establish value or rarity. TSQ-129 · TSQ-164 · TSQ-183</ObservationNote>
+        </div>
+      </section>
+
+      <section className="section shell gameplay-boundary">
+        <div>
+          <p className="eyebrow">Current limitations</p>
+          <h2>No private-server shortcut.</h2>
+          <p>At the August 20 research snapshot, players could not create VIP/private servers for this experience. That is a dated availability check, not a permanent promise. TSQ-019</p>
+        </div>
+        <AdviceNote>Use a public session as the current default assumption. Re-check the official page if private-server availability matters to your plan.</AdviceNote>
+      </section>
+
+      <NextGuide href="/progression" kicker="Next file · 03" title="Decode the collector systems" description="Move from the visible loop into collection grids, reveal labels, XP claims and the branching upgrade map." />
     </>
   );
 }

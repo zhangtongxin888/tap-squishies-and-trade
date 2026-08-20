@@ -7,7 +7,7 @@ export function SiteFooter() {
       <div className="shell footer-grid">
         <div>
           <p className="eyebrow">Independent fan guide</p>
-          <h2>Keep the facts squishy-proof.</h2>
+          <h2>Tap soft. Trade carefully.</h2>
           <p className="footer-copy">
             {site.name} is an independent fan-made guide. It is not affiliated
             with or endorsed by Roblox or {site.developer}.
@@ -24,11 +24,10 @@ export function SiteFooter() {
           </nav>
         </div>
         <div>
-          <h3>Fact note</h3>
+          <h3>Evidence rule</h3>
           <p className="footer-copy">
-            Gameplay facts on this site were checked on {site.verifiedOn}{" "}
-            against official Roblox API metadata and the creator&apos;s Roblox
-            experience description.
+            Facts were checked on {site.verifiedOn}. Video timestamps point to
+            approximate storyboard frames; changing values are labeled as dated snapshots.
           </p>
           <a
             className="text-link on-dark"
@@ -40,8 +39,8 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="shell footer-bottom">
-        <span>Made for clearer first sessions.</span>
-        <Link href="/faq">Facts, limits &amp; FAQ</Link>
+        <span>106 approved core facts · 6 focused guide routes</span>
+        <Link href="/faq">Sources, limits &amp; FAQ</Link>
       </div>
     </footer>
   );

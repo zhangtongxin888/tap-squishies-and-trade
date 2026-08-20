@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/beginner-guide/", "/gameplay/", "/progression/", "/mistakes/", "/faq/"];
   return routes.map((route) => ({
     url: `${site.url}${route}`,
-    lastModified: new Date("2026-08-19"),
+    lastModified: new Date("2026-08-20"),
     changeFrequency: "weekly" as const,
     priority: route === "" ? 1 : 0.8,
   }));
