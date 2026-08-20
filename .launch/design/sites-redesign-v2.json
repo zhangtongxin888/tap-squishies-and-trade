@@ -4,7 +4,7 @@
   "game": "Tap Squishies and Trade",
   "domain": "tap-squishies-and-trade.wiki",
   "generated_at": "2026-08-20T12:47:44+08:00",
-  "status": "ready_for_controller_design_review",
+  "status": "controller_accepted_design_deployed_to_vercel_domain_pending_dns",
   "sites": {
     "project_id": "appgprj_6a8663196bac81919b5d97824a56a274",
     "reused_existing_project": true,
